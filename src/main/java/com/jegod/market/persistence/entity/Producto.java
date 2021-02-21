@@ -30,6 +30,12 @@ public class Producto {
 
     private boolean estado;
 
+    @ManyToOne
+    //No se borrará, actualizaran categorías desde aquí (insertable, updatable)
+    //Join es para mantener la relación entre tablas, en este caso id_categoria
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
+
     public Integer getIdProducto() {
         return idProducto;
     }
